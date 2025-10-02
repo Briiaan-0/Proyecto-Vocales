@@ -1,4 +1,7 @@
-Hola MUNDO
+Hola Mundo
+ESTE es un Texto de Prueba
+Árbol único con Ünicornio
+línea vacía aquí:
 
-La vida es bella
-Había una vez un pollo que murió
+Palabras   con   espacios   extras
+Otra línea con vocales AEIOU áéíóú üÜ
