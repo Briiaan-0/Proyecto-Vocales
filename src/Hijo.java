@@ -4,7 +4,36 @@ import java.nio.file.*;
 import java.text.Normalizer;
 import java.util.*;
 
+/**
+ * Clase Hijo.
+ * <p>
+ * Procesa un rango de líneas de un fichero, convierte todas las palabras
+ * a minúsculas y normaliza los acentos, cuenta las vocales y escribe los
+ * resultados en un fichero de salida.
+ * </p>
+ * <p>
+ * Los argumentos esperados son:
+ * java Hijo <fichero> <indiceInicio> <indiceFin> <ficheroSalida>
+ * </p>
+ *
+ * @author Brian Giraldo
+ * @version 1.0
+ */
+
 public class Hijo {
+
+    /**
+     * Método principal de la clase Hijo.
+     * Lee las líneas indicadas del fichero, procesa las palabras y vocales
+     * y escribe los resultados en el fichero de salida.
+     *
+     * @param args Array de argumentos de la línea de comandos. Debe contener:
+     *             args[0] -> fichero de entrada
+     *             args[1] -> índice de inicio
+     *             args[2] -> índice de fin
+     *             args[3] -> fichero de salida
+     */
+
     public static void main(String[] args) {
         if (args.length != 4) {
             System.err.println("Uso: java Hijo <fichero> <indiceInicio> <indiceFin> <ficheroSalida>");

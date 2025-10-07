@@ -3,7 +3,32 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 import java.util.*;
 
+/**
+ * Clase Padre.
+ * <p>
+ * Esta clase lee uno o varios ficheros de texto, lanza procesos Hijo para
+ * procesar cada línea del fichero en paralelo, y recopila los resultados
+ * parciales para generar un informe final de palabras y vocales.
+ * </p>
+ * <p>
+ * Los argumentos esperados son:
+ * java Padre <fichero1> [fichero2 ...] [numHijos]
+ * </p>
+ *
+ * @author Brian Giraldo
+ * @version 1.0
+ */
+
 public class Padre {
+
+    /**
+     * Método principal de la clase Padre.
+     * Lee los argumentos, valida el número de hijos y procesa cada fichero.
+     *
+     * @param args Array de argumentos de la línea de comandos. Puede contener
+     *             varios ficheros y opcionalmente el número de hijos al final.
+     */
+
     public static void main(String[] args) {
         if (args.length < 1) {
             System.out.println("Uso: java Padre <fichero1> [fichero2 ...] [numHijos]");
