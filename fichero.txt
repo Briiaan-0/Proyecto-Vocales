@@ -1,7 +1,6 @@
-Hola Mundo
-ESTE es un Texto de Prueba
-Árbol único con Ünicornio
-línea vacía aquí:
-
-Palabras   con   espacios   extras
-Otra línea con vocales AEIOU áéíóú üÜ
+Ordenador
+ratón  
+SERVIDOR  
+código  
+Internet  
+...

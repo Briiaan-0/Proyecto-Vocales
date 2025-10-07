@@ -1,6 +1,6 @@
 import java.io.*;
-import java.nio.file.*;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.*;
 import java.text.Normalizer;
 import java.util.*;
 
@@ -18,8 +18,8 @@ public class Hijo {
 
         if (inicio < 0) inicio = 0;
 
-        int totalPalabras = 0;
         int totalVocales = 0;
+        StringBuilder todasPalabras = new StringBuilder();
 
         try {
             List<String> lineas = Files.readAllLines(Paths.get(fichero), StandardCharsets.UTF_8);
@@ -28,25 +28,30 @@ public class Hijo {
                 String linea = lineas.get(i).trim();
                 if (linea.isEmpty()) continue;
 
-                // Normalizamos solo a nivel de palabra, y contamos tokens por espacios
                 String[] palabras = linea.split("\\s+");
                 for (String palabra : palabras) {
                     if (palabra.isEmpty()) continue;
-                    totalPalabras++;
 
-                    // normalizar y eliminar marcas diacríticas para contar la 'base' (ü -> u, á -> a)
+                    // convertir a minúscula y normalizar
                     String normalized = Normalizer.normalize(palabra.toLowerCase(Locale.ROOT), Normalizer.Form.NFD);
-                    normalized = normalized.replaceAll("\\p{M}", ""); // elimina marcas diacríticas
+                    normalized = normalized.replaceAll("\\p{M}", "");
 
+                    // agregar palabra al StringBuilder
+                    if (todasPalabras.length() > 0) {
+                        todasPalabras.append(" ");
+                    }
+                    todasPalabras.append(normalized);
+
+                    // contar vocales
                     for (char c : normalized.toCharArray()) {
                         if ("aeiou".indexOf(c) >= 0) totalVocales++;
                     }
                 }
             }
 
-            // Escribir resultado
+            // escribir resultado
             try (BufferedWriter bw = Files.newBufferedWriter(Paths.get(ficheroSalida), StandardCharsets.UTF_8)) {
-                bw.write("palabras=" + totalPalabras);
+                bw.write("palabras=" + todasPalabras.toString());
                 bw.newLine();
                 bw.write("vocales=" + totalVocales);
                 bw.newLine();
